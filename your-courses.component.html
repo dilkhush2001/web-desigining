@@ -1,0 +1,52 @@
+<ng-container *ngIf="coursesBlock; else otherBlock">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let threesubscribedbatches of batches; let i = index"
+            [ngClass]="(i==0)?'active':''">
+            <div class="card-group group-padding">
+                <div class="card class-card class-background batch-box"
+                    *ngFor="let eachbatch of threesubscribedbatches">
+                    <h5 class="card-title title"> {{eachbatch.batchId}}</h5>
+
+                    <div class="card-body text-center">
+
+                        <button class="btn btn-info" (click)="openDemoClass(eachbatch.demoClassURL)">
+                            Demo Class
+                        </button>
+                    </div>
+                    <ol>
+                        <li class="courses-class" *ngFor="let course of eachbatch.assignedCourses">
+                            {{course.courseName.courseName}} , {{course.startDate}}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+</ng-container>
+
+
+<ng-template #otherBlock>
+
+    <div class="card class-card card-card">
+
+        <p class="class-text" style="text-align: center;">
+            You are not registered to any batch so please check for the upcoming batches</p>
+
+        <div class="card-body text-center"><button class="btn btn-primary" (click)="onUpcomingBatchesButtonClick()">
+                upcoming
+                Batches</button>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,11 @@
+To start the applicationn - ng serve
+To create module - ng g module <yourmodulename>
+                 - ng g m <yourmodulename>
+        exmaple  - ng g m newModule
+To create component - ng g component <yourcomponentname>
+                    - ng g c <yourcomponentname>
+        exmaple     - ng g c newComponent
+
+To build the angular application - ng build
+                                 - ng build --prod
+                                 - npx -p @angular/cli ng build      
